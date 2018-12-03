@@ -15,5 +15,6 @@ namespace Ankiety_PZ
     public partial class WyswietlAnkiety
     {
         public string NazwaAnkiety { get; set; }
+        public int IdAnkiety { get; set; }
     }
 }

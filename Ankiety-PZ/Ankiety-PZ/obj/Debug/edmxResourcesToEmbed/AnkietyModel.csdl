@@ -99,8 +99,10 @@
   <EntityType Name="WyswietlAnkiety">
     <Key>
       <PropertyRef Name="NazwaAnkiety" />
+      <PropertyRef Name="IdAnkiety" />
     </Key>
     <Property Name="NazwaAnkiety" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdAnkiety" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK__Ankiety__IdUzytk__4AB81AF0">
     <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
@@ -173,5 +175,23 @@
       <End Role="Pytania" EntitySet="Pytania" />
       <End Role="Wyniki" EntitySet="Wyniki" />
     </AssociationSet>
+    <FunctionImport Name="WypelnijAnkiete" ReturnType="Collection(Model.WypelnijAnkiete_Result)">
+      <Parameter Name="idankiety" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="WypelnijAnkiete_Result">
+    <Property Type="String" Name="NazwaAnkiety" Nullable="false" MaxLength="70" />
+    <Property Type="Int32" Name="IdPytania" Nullable="false" />
+    <Property Type="String" Name="Pytanie" Nullable="false" />
+    <Property Type="String" Name="Odp_1" Nullable="false" />
+    <Property Type="String" Name="Odp_2" Nullable="false" />
+    <Property Type="String" Name="Odp_3" Nullable="true" />
+    <Property Type="String" Name="Odp_4" Nullable="true" />
+    <Property Type="String" Name="Odp_5" Nullable="true" />
+    <Property Type="String" Name="Odp_6" Nullable="true" />
+    <Property Type="String" Name="Odp_7" Nullable="true" />
+    <Property Type="String" Name="Odp_8" Nullable="true" />
+    <Property Type="String" Name="Odp_9" Nullable="true" />
+    <Property Type="String" Name="Odp_10" Nullable="true" />
+  </ComplexType>
 </Schema>

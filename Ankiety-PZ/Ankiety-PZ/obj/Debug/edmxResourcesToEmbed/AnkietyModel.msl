@@ -92,9 +92,29 @@
     <EntitySetMapping Name="WyswietlAnkiety">
       <EntityTypeMapping TypeName="Model.WyswietlAnkiety">
         <MappingFragment StoreEntitySet="WyswietlAnkiety">
+          <ScalarProperty Name="IdAnkiety" ColumnName="IdAnkiety" />
           <ScalarProperty Name="NazwaAnkiety" ColumnName="NazwaAnkiety" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="WypelnijAnkiete" FunctionName="Model.Store.WypelnijAnkiete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.WypelnijAnkiete_Result">
+          <ScalarProperty Name="NazwaAnkiety" ColumnName="NazwaAnkiety" />
+          <ScalarProperty Name="IdPytania" ColumnName="IdPytania" />
+          <ScalarProperty Name="Pytanie" ColumnName="Pytanie" />
+          <ScalarProperty Name="Odp_1" ColumnName="Odp_1" />
+          <ScalarProperty Name="Odp_2" ColumnName="Odp_2" />
+          <ScalarProperty Name="Odp_3" ColumnName="Odp_3" />
+          <ScalarProperty Name="Odp_4" ColumnName="Odp_4" />
+          <ScalarProperty Name="Odp_5" ColumnName="Odp_5" />
+          <ScalarProperty Name="Odp_6" ColumnName="Odp_6" />
+          <ScalarProperty Name="Odp_7" ColumnName="Odp_7" />
+          <ScalarProperty Name="Odp_8" ColumnName="Odp_8" />
+          <ScalarProperty Name="Odp_9" ColumnName="Odp_9" />
+          <ScalarProperty Name="Odp_10" ColumnName="Odp_10" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

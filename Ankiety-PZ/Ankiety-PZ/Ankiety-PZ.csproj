@@ -233,6 +233,9 @@
     <Compile Include="Wyniki.cs">
       <DependentUpon>AnkietyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="WypelnijAnkiete_Result.cs">
+      <DependentUpon>AnkietyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="WyswietlAnkiety.cs">
       <DependentUpon>AnkietyModel.tt</DependentUpon>
     </Compile>

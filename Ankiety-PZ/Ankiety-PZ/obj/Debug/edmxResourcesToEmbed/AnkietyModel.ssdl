@@ -95,8 +95,10 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
   <EntityType Name="WyswietlAnkiety">
     <Key>
       <PropertyRef Name="NazwaAnkiety" />
+      <PropertyRef Name="IdAnkiety" />
     </Key>
     <Property Name="NazwaAnkiety" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="IdAnkiety" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK__Ankiety__IdUzytk__4AB81AF0">
     <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
@@ -146,6 +148,9 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="WypelnijAnkiete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idankiety" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="ModelStoreContainer">
     <EntitySet Name="Ankiety" EntityType="Self.Ankiety" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pytania" EntityType="Self.Pytania" Schema="dbo" store:Type="Tables" />
@@ -179,7 +184,8 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
     </EntitySet>
     <EntitySet Name="WyswietlAnkiety" EntityType="Self.WyswietlAnkiety" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [WyswietlAnkiety].[NazwaAnkiety] AS [NazwaAnkiety]
+    [WyswietlAnkiety].[NazwaAnkiety] AS [NazwaAnkiety], 
+    [WyswietlAnkiety].[IdAnkiety] AS [IdAnkiety]
     FROM [dbo].[WyswietlAnkiety] AS [WyswietlAnkiety]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__Ankiety__IdUzytk__4AB81AF0" Association="Self.FK__Ankiety__IdUzytk__4AB81AF0">

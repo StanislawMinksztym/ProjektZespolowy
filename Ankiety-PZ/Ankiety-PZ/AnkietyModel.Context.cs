@@ -12,6 +12,8 @@ namespace Ankiety_PZ
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class Entities : DbContext
     {
@@ -31,5 +33,14 @@ namespace Ankiety_PZ
         public virtual DbSet<Wyniki> Wyniki { get; set; }
         public virtual DbSet<Wynik> Wynik { get; set; }
         public virtual DbSet<WyswietlAnkiety> WyswietlAnkiety { get; set; }
+    
+        public virtual ObjectResult<WypelnijAnkiete_Result> WypelnijAnkiete(Nullable<int> idankiety)
+        {
+            var idankietyParameter = idankiety.HasValue ?
+                new ObjectParameter("idankiety", idankiety) :
+                new ObjectParameter("idankiety", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WypelnijAnkiete_Result>("WypelnijAnkiete", idankietyParameter);
+        }
     }
 }
