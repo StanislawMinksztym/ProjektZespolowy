@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="24f3224417b2493796a9a27f721e953d" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Ankiety" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Pytania" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Uzytkownicy" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Wyniki" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Wynik" Width="1.5" PointX="11.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.WyswietlAnkiety" Width="1.5" PointX="9.375" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__Ankiety__IdUzytk__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Pytania__IdAnkie__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Wyniki__IdAnkiet__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Wyniki__IdPytani__534D60F1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Ankiety">
+    <Key>
+      <PropertyRef Name="IdAnkiety" />
+    </Key>
+    <Property Name="IdAnkiety" Type="Int32" Nullable="false" />
+    <Property Name="IdUzytkownika" Type="Int32" Nullable="false" />
+    <Property Name="NazwaAnkiety" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Aktywna" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK__Ankiety__IdUzytk__4AB81AF0" FromRole="Ankiety" ToRole="Uzytkownicy" />
+    <NavigationProperty Name="Pytania" Relationship="Self.FK__Pytania__IdAnkie__5070F446" FromRole="Ankiety" ToRole="Pytania" />
+    <NavigationProperty Name="Wyniki" Relationship="Self.FK__Wyniki__IdAnkiet__5441852A" FromRole="Ankiety" ToRole="Wyniki" />
+  </EntityType>
+  <EntityType Name="Pytania">
+    <Key>
+      <PropertyRef Name="IdPytania" />
+    </Key>
+    <Property Name="IdPytania" Type="Int32" Nullable="false" />
+    <Property Name="IdAnkiety" Type="Int32" Nullable="false" />
+    <Property Name="Pytanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Odp_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Odp_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Odp_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Kilka_Odp" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Ankiety" Relationship="Self.FK__Pytania__IdAnkie__5070F446" FromRole="Pytania" ToRole="Ankiety" />
+    <NavigationProperty Name="Wyniki" Relationship="Self.FK__Wyniki__IdPytani__534D60F1" FromRole="Pytania" ToRole="Wyniki" />
+  </EntityType>
+  <EntityType Name="Uzytkownicy">
+    <Key>
+      <PropertyRef Name="IdUzytkownika" />
+    </Key>
+    <Property Name="IdUzytkownika" Type="Int32" Nullable="false" />
+    <Property Name="Imie" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwisko" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Haslo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Ankiety" Relationship="Self.FK__Ankiety__IdUzytk__4AB81AF0" FromRole="Uzytkownicy" ToRole="Ankiety" />
+  </EntityType>
+  <EntityType Name="Wyniki">
+    <Key>
+      <PropertyRef Name="IdWyniku" />
+    </Key>
+    <Property Name="IdWyniku" Type="Int32" Nullable="false" />
+    <Property Name="IdPytania" Type="Int32" Nullable="false" />
+    <Property Name="IdAnkiety" Type="Int32" Nullable="false" />
+    <Property Name="Ile_Odp_1" Type="Int32" Nullable="false" />
+    <Property Name="Ile_Odp_2" Type="Int32" Nullable="false" />
+    <Property Name="Ile_Odp_3" Type="Int32" />
+    <Property Name="Ile_Odp_4" Type="Int32" />
+    <Property Name="Ile_Odp_5" Type="Int32" />
+    <Property Name="Ile_Odp_6" Type="Int32" />
+    <Property Name="Ile_Odp_7" Type="Int32" />
+    <Property Name="Ile_Odp_8" Type="Int32" />
+    <Property Name="Ile_Odp_9" Type="Int32" />
+    <Property Name="Ile_Odp_10" Type="Int32" />
+    <NavigationProperty Name="Ankiety" Relationship="Self.FK__Wyniki__IdAnkiet__5441852A" FromRole="Wyniki" ToRole="Ankiety" />
+    <NavigationProperty Name="Pytania" Relationship="Self.FK__Wyniki__IdPytani__534D60F1" FromRole="Wyniki" ToRole="Pytania" />
+  </EntityType>
+  <EntityType Name="Wynik">
+    <Key>
+      <PropertyRef Name="NazwaAnkiety" />
+      <PropertyRef Name="Pytanie" />
+      <PropertyRef Name="Odp_1" />
+      <PropertyRef Name="Odp_2" />
+      <PropertyRef Name="Ile_Odp_1" />
+      <PropertyRef Name="Ile_Odp_2" />
+    </Key>
+    <Property Name="NazwaAnkiety" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pytanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Odp_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Odp_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Odp_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Odp_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ile_Odp_1" Type="Int32" Nullable="false" />
+    <Property Name="Ile_Odp_2" Type="Int32" Nullable="false" />
+    <Property Name="Ile_Odp_3" Type="Int32" />
+    <Property Name="Ile_Odp_4" Type="Int32" />
+    <Property Name="Ile_Odp_5" Type="Int32" />
+    <Property Name="Ile_Odp_6" Type="Int32" />
+    <Property Name="Ile_Odp_7" Type="Int32" />
+    <Property Name="Ile_Odp_8" Type="Int32" />
+    <Property Name="Ile_Odp_9" Type="Int32" />
+    <Property Name="Ile_Odp_10" Type="Int32" />
+  </EntityType>
+  <EntityType Name="WyswietlAnkiety">
+    <Key>
+      <PropertyRef Name="NazwaAnkiety" />
+    </Key>
+    <Property Name="NazwaAnkiety" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Ankiety__IdUzytk__4AB81AF0">
+    <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+    <End Role="Ankiety" Type="Self.Ankiety" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy">
+        <PropertyRef Name="IdUzytkownika" />
+      </Principal>
+      <Dependent Role="Ankiety">
+        <PropertyRef Name="IdUzytkownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pytania__IdAnkie__5070F446">
+    <End Role="Ankiety" Type="Self.Ankiety" Multiplicity="1" />
+    <End Role="Pytania" Type="Self.Pytania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ankiety">
+        <PropertyRef Name="IdAnkiety" />
+      </Principal>
+      <Dependent Role="Pytania">
+        <PropertyRef Name="IdAnkiety" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wyniki__IdAnkiet__5441852A">
+    <End Role="Ankiety" Type="Self.Ankiety" Multiplicity="1" />
+    <End Role="Wyniki" Type="Self.Wyniki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ankiety">
+        <PropertyRef Name="IdAnkiety" />
+      </Principal>
+      <Dependent Role="Wyniki">
+        <PropertyRef Name="IdAnkiety" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wyniki__IdPytani__534D60F1">
+    <End Role="Pytania" Type="Self.Pytania" Multiplicity="1" />
+    <End Role="Wyniki" Type="Self.Wyniki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pytania">
+        <PropertyRef Name="IdPytania" />
+      </Principal>
+      <Dependent Role="Wyniki">
+        <PropertyRef Name="IdPytania" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ankiety" EntityType="Self.Ankiety" />
+    <EntitySet Name="Pytania" EntityType="Self.Pytania" />
+    <EntitySet Name="Uzytkownicy" EntityType="Self.Uzytkownicy" />
+    <EntitySet Name="Wyniki" EntityType="Self.Wyniki" />
+    <EntitySet Name="Wynik" EntityType="Self.Wynik" />
+    <EntitySet Name="WyswietlAnkiety" EntityType="Self.WyswietlAnkiety" />
+    <AssociationSet Name="FK__Ankiety__IdUzytk__4AB81AF0" Association="Self.FK__Ankiety__IdUzytk__4AB81AF0">
+      <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+      <End Role="Ankiety" EntitySet="Ankiety" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pytania__IdAnkie__5070F446" Association="Self.FK__Pytania__IdAnkie__5070F446">
+      <End Role="Ankiety" EntitySet="Ankiety" />
+      <End Role="Pytania" EntitySet="Pytania" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wyniki__IdAnkiet__5441852A" Association="Self.FK__Wyniki__IdAnkiet__5441852A">
+      <End Role="Ankiety" EntitySet="Ankiety" />
+      <End Role="Wyniki" EntitySet="Wyniki" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wyniki__IdPytani__534D60F1" Association="Self.FK__Wyniki__IdPytani__534D60F1">
+      <End Role="Pytania" EntitySet="Pytania" />
+      <End Role="Wyniki" EntitySet="Wyniki" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
