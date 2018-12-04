@@ -10,7 +10,17 @@
 <div class="row">
     <div class="col-md-12">
         <h2>TESTY WIDOKÓW</h2>
+        @if (@Request.IsAuthenticated)
+        {
+            <div>Logged!</div>
+        }
+        else
+        {
+            <div>Not!</div>
+        }
         <p>
+            <br />
+            <br />
             HIT THE BREAKS!!!!
             <br />
             <br />
