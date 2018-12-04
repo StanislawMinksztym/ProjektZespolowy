@@ -10,22 +10,24 @@
     <title>Ankiety | Lista ankiet</title>
 
 </head>
-    <body>
-        <header>
-            <h1> Lista ankiet </h1>
-            <div class="action_buttons">
-                <div class="button">
-                    <a href="#">Zaloguj</a>
-                </div>
+<body>
+    <header>
+        <h1> Lista ankiet </h1>
+        <div class="action_buttons">
+            <div class="button">
+                <a href="#">Zaloguj</a>
             </div>
-        </header>
+        </div>
+    </header>
 
     <div class="ankiety_lista">
-        Lorem ipsum dolor sit amet
-        <div class="ankieta_rekord">
-            <div class="ankieta_nazwa">Ankieta1</div>
-            <div class="wypelnij_btn">Wypełnij</div>
-        </div>
+        @foreach (var ankieta in @ViewBag.ListaAnkiet)
+        {
+            <div class="ankieta_rekord">
+                <div class="ankieta_nazwa">@ankieta.NazwaAnkiety</div>
+                <a href="/Ankiety/Wypelnij/@ankieta.IdAnkiety"> <div class="wypelnij_btn">Wypełnij</div></a>
+            </div>
+        }
     </div>
 </body>
 </html>

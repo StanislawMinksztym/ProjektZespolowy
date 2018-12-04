@@ -48,5 +48,49 @@ namespace Ankiety_PZ.Controllers
             return View();
         }
 
+        public ActionResult ListaAnkiet()
+        {
+            var ankietyList = new List<WyswietlAnkiety>();
+
+            using (Entities ctx1 = new Entities())
+            {
+                var result = from t in ctx1.WyswietlAnkiety
+                             select t;
+                foreach (WyswietlAnkiety t in result)
+                {
+                    ankietyList.Add(t);
+                }
+                
+            }
+
+            ViewBag.ListaAnkiet = ankietyList;
+
+            return View();
+        }
+
+        public ActionResult ListaAnkietLogout()
+        {
+
+            //TEST1:
+            var a = "";
+
+            var ankietyList = new List<WyswietlAnkiety>();
+
+            using (Entities ctx1 = new Entities())
+            {
+                var result = from t in ctx1.WyswietlAnkiety
+                             select t;
+                foreach (WyswietlAnkiety t in result)
+                {
+                    ankietyList.Add(t);
+                }
+
+            }
+
+            ViewBag.ListaAnkiet = ankietyList;
+
+            return View();
+        }
+
     }
 }

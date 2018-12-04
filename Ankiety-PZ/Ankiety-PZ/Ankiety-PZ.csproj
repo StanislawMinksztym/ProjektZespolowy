@@ -315,6 +315,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Ankiety\Index.cshtml" />
+    <Content Include="Views\Ankiety\ListaAnkiet.cshtml" />
+    <Content Include="Views\Ankiety\ListaAnkietLogout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
