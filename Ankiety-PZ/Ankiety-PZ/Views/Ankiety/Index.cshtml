@@ -10,6 +10,10 @@
 <div class="row">
     <div class="col-md-12">
         <h2>TESTY WIDOKÓW</h2>
+
+        Welcome @Session["UserName"].ToString()
+
+
         @if (@Request.IsAuthenticated)
         {
             <div>Logged!</div>

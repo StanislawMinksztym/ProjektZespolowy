@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Ankiety_PZ.Models;
 
 namespace Ankiety_PZ.Controllers
 {

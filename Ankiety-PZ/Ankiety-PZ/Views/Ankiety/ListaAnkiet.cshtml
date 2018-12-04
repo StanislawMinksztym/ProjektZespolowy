@@ -11,8 +11,32 @@
 
 </head>
 <body>
+    @if (HttpContext.Current.Session.Count == 0)
+    {
+        <header>
+            <h1> Lista ankiet </h1>
+            <div class="action_buttons">
+                <a href="/Account/Login">
+                    <div class="button">
+                        Zaloguj
+                    </div>
+                </a>
+            </div>
+        </header>
+
+        <div class="ankiety_lista">
+            @foreach (var ankieta in @ViewBag.ListaAnkiet)
+            {
+                <div class="ankieta_rekord">
+                    <div class="ankieta_nazwa">@ankieta.NazwaAnkiety</div>
+                    <a href="/Ankiety/Wypelnij/@ankieta.IdAnkiety"> <div class="wypelnij_btn">Wypełnij</div></a>
+                </div>
+            }
+        </div>
+    }else
+    {
     <header>
-        <h1> Lista ankiet </h1>
+        <h1> Witaj: @Session["UserName"].ToString() oto lista ankiet:</h1>
         <div class="action_buttons">
             <div class="button">
                 <a href="#">Nowa ankieta</a>
@@ -21,7 +45,7 @@
                 <a href="#"> Nowe pytanie</a>
             </div>
             <div class="button">
-               <a href="#">Wyloguj</a>
+                <a href="/Account/LogOut">Wyloguj</a>
             </div>
         </div>
     </header>
@@ -37,5 +61,8 @@
             }
         </div>
     </div>
+    }
+
+
 </body>
 </html>
