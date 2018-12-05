@@ -14,15 +14,19 @@
     <header>
         <h1> Wyniki ankiety 'nazwa ankiety' :</h1>
         <div class="action_buttons">
-            <div class="button">
-                <a href="#">Nowa ankieta</a>
-            </div>
-            <div class="button">
-                <a href="/Account/LogOut">Wyloguj</a>
-            </div>
+            <a href="#">
+                <div class="button">
+                    Nowa ankieta
+                </div>
+            </a>
+            <a href="/Account/LogOut">
+                <div class="button">
+                    Wyloguj
+                </div>
+            </a>
         </div>
     </header>
-    <h2>Nazwa ankiety</h2>
+    <h2>@ViewBag.Wyniki[0].NazwaAnkiety</h2>
     <div class="wyniki_lista">
         <h3>Pytanie 1</h3>
         <table>

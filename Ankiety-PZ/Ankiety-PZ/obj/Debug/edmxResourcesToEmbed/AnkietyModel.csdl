@@ -178,6 +178,36 @@
     <FunctionImport Name="WypelnijAnkiete" ReturnType="Collection(Model.WypelnijAnkiete_Result)">
       <Parameter Name="idankiety" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="AktualizujWynik">
+      <Parameter Name="idankiety" Mode="In" Type="Int32" />
+      <Parameter Name="idpytania" Mode="In" Type="Int32" />
+      <Parameter Name="nrodpowiedzi" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DodajAnkiete">
+      <Parameter Name="nazwa" Mode="In" Type="String" />
+      <Parameter Name="iduz" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DodajPytanie">
+      <Parameter Name="idankiety" Mode="In" Type="Int32" />
+      <Parameter Name="kilka" Mode="In" Type="Boolean" />
+      <Parameter Name="pytanie" Mode="In" Type="String" />
+      <Parameter Name="odp1" Mode="In" Type="String" />
+      <Parameter Name="odp2" Mode="In" Type="String" />
+      <Parameter Name="odp3" Mode="In" Type="String" />
+      <Parameter Name="odp4" Mode="In" Type="String" />
+      <Parameter Name="odp5" Mode="In" Type="String" />
+      <Parameter Name="odp6" Mode="In" Type="String" />
+      <Parameter Name="odp7" Mode="In" Type="String" />
+      <Parameter Name="odp8" Mode="In" Type="String" />
+      <Parameter Name="odp9" Mode="In" Type="String" />
+      <Parameter Name="odp10" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="WyswietlPytania" ReturnType="Collection(Model.WyswietlPytania_Result)">
+      <Parameter Name="idankiety" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="WyswietlWynik" ReturnType="Collection(Model.WyswietlWynik_Result)">
+      <Parameter Name="idankiety" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="WypelnijAnkiete_Result">
     <Property Type="String" Name="NazwaAnkiety" Nullable="false" MaxLength="70" />
@@ -193,5 +223,45 @@
     <Property Type="String" Name="Odp_8" Nullable="true" />
     <Property Type="String" Name="Odp_9" Nullable="true" />
     <Property Type="String" Name="Odp_10" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="WyswietlPytania_Result">
+    <Property Type="String" Name="NazwaAnkiety" Nullable="false" MaxLength="70" />
+    <Property Type="Int32" Name="IdPytania" Nullable="false" />
+    <Property Type="Boolean" Name="Kilka_Odp" Nullable="false" />
+    <Property Type="String" Name="Pytanie" Nullable="false" />
+    <Property Type="String" Name="Odp_1" Nullable="false" />
+    <Property Type="String" Name="Odp_2" Nullable="false" />
+    <Property Type="String" Name="Odp_3" Nullable="true" />
+    <Property Type="String" Name="Odp_4" Nullable="true" />
+    <Property Type="String" Name="Odp_5" Nullable="true" />
+    <Property Type="String" Name="Odp_6" Nullable="true" />
+    <Property Type="String" Name="Odp_7" Nullable="true" />
+    <Property Type="String" Name="Odp_8" Nullable="true" />
+    <Property Type="String" Name="Odp_9" Nullable="true" />
+    <Property Type="String" Name="Odp_10" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="WyswietlWynik_Result">
+    <Property Type="String" Name="NazwaAnkiety" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="Pytanie" Nullable="false" />
+    <Property Type="String" Name="Odp_1" Nullable="false" />
+    <Property Type="String" Name="Odp_2" Nullable="false" />
+    <Property Type="String" Name="Odp_3" Nullable="true" />
+    <Property Type="String" Name="Odp_4" Nullable="true" />
+    <Property Type="String" Name="Odp_5" Nullable="true" />
+    <Property Type="String" Name="Odp_6" Nullable="true" />
+    <Property Type="String" Name="Odp_7" Nullable="true" />
+    <Property Type="String" Name="Odp_8" Nullable="true" />
+    <Property Type="String" Name="Odp_9" Nullable="true" />
+    <Property Type="String" Name="Odp_10" Nullable="true" />
+    <Property Type="Int32" Name="Ile_Odp_1" Nullable="false" />
+    <Property Type="Int32" Name="Ile_Odp_2" Nullable="false" />
+    <Property Type="Int32" Name="Ile_Odp_3" Nullable="true" />
+    <Property Type="Int32" Name="Ile_Odp_4" Nullable="true" />
+    <Property Type="Int32" Name="Ile_Odp_5" Nullable="true" />
+    <Property Type="Int32" Name="Ile_Odp_6" Nullable="true" />
+    <Property Type="Int32" Name="Ile_Odp_7" Nullable="true" />
+    <Property Type="Int32" Name="Ile_Odp_8" Nullable="true" />
+    <Property Type="Int32" Name="Ile_Odp_9" Nullable="true" />
+    <Property Type="Int32" Name="Ile_Odp_10" Nullable="true" />
   </ComplexType>
 </Schema>

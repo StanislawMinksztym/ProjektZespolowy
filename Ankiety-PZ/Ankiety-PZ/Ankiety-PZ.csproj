@@ -232,6 +232,12 @@
     <Compile Include="WyswietlAnkiety.cs">
       <DependentUpon>AnkietyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="WyswietlPytania_Result.cs">
+      <DependentUpon>AnkietyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WyswietlWynik_Result.cs">
+      <DependentUpon>AnkietyModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AnkietyModel.Context.tt">
@@ -246,6 +252,7 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -283,8 +290,9 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Ankiety\Index.cshtml" />
     <Content Include="Views\Ankiety\ListaAnkiet.cshtml" />
+    <Content Include="Views\Ankiety\Wyniki.cshtml" />
+    <Content Include="Views\Ankiety\WypelnijAnkiete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
