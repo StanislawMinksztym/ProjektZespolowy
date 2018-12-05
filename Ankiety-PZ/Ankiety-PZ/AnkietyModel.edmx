@@ -480,7 +480,7 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
           <Property Type="String" Name="Odp_8" Nullable="true" />
           <Property Type="String" Name="Odp_9" Nullable="true" />
           <Property Type="String" Name="Odp_10" Nullable="true" />
-          <Property Type="Int32" Name="IdAnkiety" Nullable="false" />
+          <Property Type="Int32" Name="ilosc_odp" Nullable="true" />
         </ComplexType>
         <ComplexType Name="WyswietlWynik_Result">
           <Property Type="String" Name="NazwaAnkiety" Nullable="false" MaxLength="70" />
@@ -629,7 +629,7 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
                 <ScalarProperty Name="Odp_8" ColumnName="Odp_8" />
                 <ScalarProperty Name="Odp_9" ColumnName="Odp_9" />
                 <ScalarProperty Name="Odp_10" ColumnName="Odp_10" />
-                <ScalarProperty Name="IdAnkiety" ColumnName="IdAnkiety" />
+                <ScalarProperty Name="ilosc_odp" ColumnName="ilosc_odp" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
