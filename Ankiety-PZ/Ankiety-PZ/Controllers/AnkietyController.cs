@@ -37,7 +37,7 @@ namespace Ankiety_PZ.Controllers
             using (var ctx = new Entities())
             {
                 var wyniki = ctx.WyswietlWynik(id).ToList();
-
+                
                 ViewBag.Wyniki = wyniki;
             }
 

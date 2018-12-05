@@ -263,5 +263,6 @@
     <Property Type="Int32" Name="Ile_Odp_8" Nullable="true" />
     <Property Type="Int32" Name="Ile_Odp_9" Nullable="true" />
     <Property Type="Int32" Name="Ile_Odp_10" Nullable="true" />
+    <Property Type="Int32" Name="IdPytania" Nullable="false" />
   </ComplexType>
 </Schema>

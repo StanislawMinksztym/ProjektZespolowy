@@ -447,7 +447,7 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
           <Parameter Name="idankiety" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="WyswietlWynik" ReturnType="Collection(Model.WyswietlWynik_Result)">
-            <Parameter Name="idankiety" Mode="In" Type="Int32" />
+          <Parameter Name="idankiety" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="WypelnijAnkiete_Result">
@@ -504,6 +504,7 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
           <Property Type="Int32" Name="Ile_Odp_8" Nullable="true" />
           <Property Type="Int32" Name="Ile_Odp_9" Nullable="true" />
           <Property Type="Int32" Name="Ile_Odp_10" Nullable="true" />
+          <Property Type="Int32" Name="IdPytania" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -655,6 +656,7 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
                 <ScalarProperty Name="Ile_Odp_8" ColumnName="Ile_Odp_8" />
                 <ScalarProperty Name="Ile_Odp_9" ColumnName="Ile_Odp_9" />
                 <ScalarProperty Name="Ile_Odp_10" ColumnName="Ile_Odp_10" />
+                <ScalarProperty Name="IdPytania" ColumnName="IdPytania" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

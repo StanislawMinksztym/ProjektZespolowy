@@ -145,6 +145,7 @@
           <ScalarProperty Name="Ile_Odp_8" ColumnName="Ile_Odp_8" />
           <ScalarProperty Name="Ile_Odp_9" ColumnName="Ile_Odp_9" />
           <ScalarProperty Name="Ile_Odp_10" ColumnName="Ile_Odp_10" />
+          <ScalarProperty Name="IdPytania" ColumnName="IdPytania" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

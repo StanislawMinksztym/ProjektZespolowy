@@ -35,5 +35,6 @@ namespace Ankiety_PZ
         public Nullable<int> Ile_Odp_8 { get; set; }
         public Nullable<int> Ile_Odp_9 { get; set; }
         public Nullable<int> Ile_Odp_10 { get; set; }
+        public int IdPytania { get; set; }
     }
 }

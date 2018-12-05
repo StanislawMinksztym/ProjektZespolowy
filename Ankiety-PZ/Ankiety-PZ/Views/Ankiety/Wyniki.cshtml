@@ -2,17 +2,17 @@
     Layout = null;
 }
 
-
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="~/Content/style.css" type="text/css" />
     <meta name="viewport" content="width=device-width" />
     <title>Ankiety | Wyniki ankiety</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
     <header>
-        <h1> Wyniki ankiety 'nazwa ankiety' :</h1>
+        <h1> Wyniki ankiety @ViewBag.Wyniki[0].NazwaAnkiety:</h1>
         <div class="action_buttons">
             <a href="#">
                 <div class="button">
@@ -28,41 +28,116 @@
     </header>
     <h2>@ViewBag.Wyniki[0].NazwaAnkiety</h2>
     <div class="wyniki_lista">
-        <h3>Pytanie 1</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Odpowiedź</th>
-                    <th>Procent odpowiedzi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Odpowiedz 1</th>
-                    <th>20 %</th>
-                </tr>
-                <tr>
-                    <th>Odpowiedz 2</th>
-                    <th>20 %</th>
-                </tr>
-                <tr>
-                    <th>Odpowiedz 3</th>
-                    <th>20 %</th>
-                </tr>
-                <tr>
-                    <th>Odpowiedz 4</th>
-                    <th>20 %</th>
-                </tr>
-                <tr>
-                    <th>Odpowiedz 5</th>
-                    <th>20 %</th>
-                </tr>
-            </tbody>
-        </table>
-        <div class="wykres">
-            Tu będzie wykres
-        </div>
+        @foreach (var pytanie in @ViewBag.Wyniki)
+        {
+            <script type="text/javascript">
+
+                google.charts.load('current', { 'packages': ['corechart'] });
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+
+                    var data = google.visualization.arrayToDataTable([
+                        ['Task', 'Hours per Day'],
+                        ["@pytanie.Odp_1", @pytanie.Ile_Odp_1],
+                        ["@pytanie.Odp_2", @pytanie.Ile_Odp_2],
+                        @if (@pytanie.Odp_3 != null) {  <text> ["@pytanie.Odp_3", @pytanie.Ile_Odp_3], </text> }
+                        @if (@pytanie.Odp_4 != null) {  <text> ["@pytanie.Odp_4", @pytanie.Ile_Odp_4], </text> }
+                        @if (@pytanie.Odp_5 != null) {  <text> ["@pytanie.Odp_5", @pytanie.Ile_Odp_5], </text> }
+                        @if (@pytanie.Odp_6 != null) {  <text> ["@pytanie.Odp_6", @pytanie.Ile_Odp_6], </text> }
+                        @if (@pytanie.Odp_7 != null) {  <text> ["@pytanie.Odp_7", @pytanie.Ile_Odp_7], </text> }
+                        @if (@pytanie.Odp_8 != null) {  <text> ["@pytanie.Odp_8", @pytanie.Ile_Odp_8], </text> }
+                        @if (@pytanie.Odp_9 != null) {  <text> ["@pytanie.Odp_9", @pytanie.Ile_Odp_9], </text> }
+                        @if (@pytanie.Odp_10 != null) {  <text> ["@pytanie.Odp_10", @pytanie.Ile_Odp_10], </text> }
+                    ]);
+
+                    var chart = new google.visualization.PieChart(document.getElementById("wykres @pytanie.IdPytania"));
+
+                    chart.draw(data);
+            }
+
+            </script>
+
+            <h3>@pytanie.Pytanie</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Odpowiedź</th>
+                        <th>Liczba odpowiedzi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>@pytanie.Odp_1</th>
+                        <th>@pytanie.Ile_Odp_1</th>
+                    </tr>
+                    <tr>
+                        <th>@pytanie.Odp_2</th>
+                        <th>@pytanie.Ile_Odp_2</th>
+                    </tr>
+                    @if (@pytanie.Odp_3 != null)
+                    {
+                        <tr>
+                            <th>@pytanie.Odp_3</th>
+                            <th>@pytanie.Ile_Odp_3</th>
+                        </tr>
+                    }
+                    @if (@pytanie.Odp_4 != null)
+                    {
+                        <tr>
+                            <th>@pytanie.Odp_4</th>
+                            <th>@pytanie.Ile_Odp_4</th>
+                        </tr>
+                    }
+                    @if (@pytanie.Odp_5 != null)
+                    {
+                        <tr>
+                            <th>@pytanie.Odp_5</th>
+                            <th>@pytanie.Ile_Odp_5</th>
+                        </tr>
+                    }
+                    @if (@pytanie.Odp_6 != null)
+                    {
+                        <tr>
+                            <th>@pytanie.Odp_6</th>
+                            <th>@pytanie.Ile_Odp_6</th>
+                        </tr>
+                    }
+                    @if (@pytanie.Odp_7 != null)
+                    {
+                        <tr>
+                            <th>@pytanie.Odp_7</th>
+                            <th>@pytanie.Ile_Odp_7</th>
+                        </tr>
+                    }
+                    @if (@pytanie.Odp_8 != null)
+                    {
+                        <tr>
+                            <th>@pytanie.Odp_8</th>
+                            <th>@pytanie.Ile_Odp_8</th>
+                        </tr>
+                    }
+                    @if (@pytanie.Odp_9 != null)
+                    {
+                        <tr>
+                            <th>@pytanie.Odp_9</th>
+                            <th>@pytanie.Ile_Odp_9</th>
+                        </tr>
+                    }
+                    @if (@pytanie.Odp_10 != null)
+                    {
+                        <tr>
+                            <th>@pytanie.Odp_10</th>
+                            <th>@pytanie.Ile_Odp_10</th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="wykres" align="center">
+                <div id="wykres @pytanie.IdPytania" style="width: 400px; height: 200px;"></div>
+            </div>
+
+        }
     </div>
 </body>
 </html>
-
