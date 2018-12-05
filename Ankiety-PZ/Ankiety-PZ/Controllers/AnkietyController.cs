@@ -44,10 +44,47 @@ namespace Ankiety_PZ.Controllers
             return View();
         }
 
-        public ActionResult WypelnijAnkiete()
+        public ActionResult WypelnijAnkiete(int id)
         {
+            using (var ctx = new Entities())
+            {
+                var pytania = ctx.WyswietlPytania(id).ToList();
+
+                ViewBag.Pytania = pytania;
+            }
+
             return View();
         }
 
+        [HttpPost]
+        public ActionResult AktualizujWynik(FormCollection collection)
+        {
+            var wyniki = new Dictionary<string, object>();
+            Request.Form.CopyTo(wyniki);
+
+            //AktualizujWynik(idankiety, idpytania, nrodpowiedzi);
+
+            var idAnkiety = Convert.ToInt32(wyniki["IdAnkiety"]);
+
+            using (var ctx = new Entities())
+            {
+                foreach (var w in wyniki) { 
+                    if(w.Key != "IdAnkiety") {
+                        var a = Convert.ToInt32(w.Key);
+                        var odps = w.Value.ToString().Split(',');
+                        foreach(var o in odps)
+                        {
+                            ctx.AktualizujWynik(idAnkiety, Convert.ToInt32(w.Key), Convert.ToInt32(o));
+                        }
+                        
+                    }
+
+                }
+            }
+
+            var value1 = Request.Form.ToString();
+
+            return RedirectToAction("ListaAnkiet");
+        }
     }
 }
