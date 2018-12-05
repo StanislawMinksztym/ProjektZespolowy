@@ -1,46 +1,56 @@
 ﻿@model Uzytkownicy
 
 @{
-    ViewBag.Title = "Login";
+    Layout=null;
 }
+<head>
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Ankiety | Logowanie</title>
 
-@using (Html.BeginForm("Login", "Account", FormMethod.Post))
-{
-    <fieldset>
-        <legend>Strona logowania:</legend>
+</head>
+<body>
+    <header>
+        <h1> Zaloguj się </h1>
+    </header>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        <fieldset class="login_form">
 
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-        @if (@ViewBag.Message != null)
-        {
-            <div style="border: 1px solid red">
-                @ViewBag.Message
-            </div>
-        }
-        <table>
-            <tr>
-                <td>@Html.LabelFor(a => a.Login)</td>
-                <td>@Html.TextBoxFor(a => a.Login)</td>
-                <td>@Html.ValidationMessageFor(a => a.Login)</td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(a => a.Haslo)
-                </td>
-                <td>
-                    @Html.PasswordFor(a => a.Haslo)
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(a => a.Haslo)
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="submit" value="Login" />
-                </td>
-                <td></td>
-            </tr>
-        </table>
-    </fieldset>
-}  
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @if (@ViewBag.Message != null)
+            {
+                <div style="border: 1px solid red">
+                    @ViewBag.Message
+                </div>
+            }
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(a => a.Login)</td>
+                    <td>@Html.TextBoxFor(a => a.Login)</td>
+                    <td>@Html.ValidationMessageFor(a => a.Login)</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(a => a.Haslo)
+                    </td>
+                    <td>
+                        @Html.PasswordFor(a => a.Haslo)
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(a => a.Haslo)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input class="wyslij_btn" type="submit" value="Zaloguj" />
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</body>
