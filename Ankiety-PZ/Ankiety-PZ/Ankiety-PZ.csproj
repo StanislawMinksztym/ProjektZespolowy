@@ -293,6 +293,7 @@
     <Content Include="Views\Ankiety\ListaAnkiet.cshtml" />
     <Content Include="Views\Ankiety\Wyniki.cshtml" />
     <Content Include="Views\Ankiety\WypelnijAnkiete.cshtml" />
+    <Content Include="Views\Ankiety\DodajAnkiete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

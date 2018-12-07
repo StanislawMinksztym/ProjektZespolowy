@@ -24,20 +24,21 @@ namespace Ankiety_PZ.Controllers
             ViewBag.ListaAnkiet = ankietyList;
             return View();
         }
-        
+
         public ActionResult Wyniki(int id)
         {
-            if(Session.Keys.Count != 0) {
-            using (var ctx = new Entities())
+            if (Session.Keys.Count != 0)
             {
-                var wyniki = ctx.WyswietlWynik(id).ToList();
-                ViewBag.Wyniki = wyniki;
-            }
-            return View();
+                using (var ctx = new Entities())
+                {
+                    var wyniki = ctx.WyswietlWynik(id).ToList();
+                    ViewBag.Wyniki = wyniki;
+                }
+                return View();
             }
             else
             {
-            return RedirectToAction("ListaAnkiet");
+                return RedirectToAction("ListaAnkiet");
             }
         }
 
@@ -59,10 +60,12 @@ namespace Ankiety_PZ.Controllers
             var idAnkiety = Convert.ToInt32(wyniki["IdAnkiety"]);
             using (var ctx = new Entities())
             {
-                foreach (var w in wyniki) { 
-                    if(w.Key != "IdAnkiety") {
+                foreach (var w in wyniki)
+                {
+                    if (w.Key != "IdAnkiety")
+                    {
                         var odps = w.Value.ToString().Split(',');
-                        foreach(var o in odps)
+                        foreach (var o in odps)
                         {
                             ctx.AktualizujWynik(idAnkiety, Convert.ToInt32(w.Key), Convert.ToInt32(o));
                         }
@@ -70,6 +73,36 @@ namespace Ankiety_PZ.Controllers
                 }
             }
             return RedirectToAction("ListaAnkiet");
+        }
+
+        public ActionResult DodajAnkiete()
+        {
+            return View();
+        }
+
+        //        . DodajAnkiete(iduzytkownika, nazwaankiety(70)
+        //3. DodajPytanie(idankiety, kilka_odp, tresc pytania, tresc odp1, tresc odp2,..., tresc odp10)
+
+        [HttpPost]
+        public ActionResult ZapiszAnkiete()
+        {
+            using (var ctx = new Entities())
+            {
+                //  ctx.DodajAnkiete(Session["UserId"],Request["NazwaAnkiety"]);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ZapiszPytanie()
+        {
+            var pytanie = new Dictionary<string, object>();
+            Request.Form.CopyTo(pytanie);
+
+
+            var a = 1;
+
+            return View();
         }
     }
 }
