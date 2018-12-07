@@ -25,46 +25,22 @@
         <h2>@ViewBag.Pytania[0].NazwaAnkiety</h2>
         <form method="post" action="/Ankiety/AktualizujWynik">
             <fieldset>
-                <input type="hidden" name="IdAnkiety" value="1">
+                <input type="hidden" name="IdAnkiety" value="@ViewBag.idAnkiety">
                 @foreach (var pytanie in ViewBag.Pytania)
                 {
                     <h3>@pytanie.Pytanie</h3>
                     <div class="odpowiedzi">
-                        <select @if (@pytanie.Kilka_Odp) { <text> multiple</text> } size="@pytanie.ilosc_odp" name="@pytanie.IdPytania">
+                        <select @if (@pytanie.Kilka_Odp) { <text> multiple</text> } size="@pytanie.ilosc_odp" name="@pytanie.IdPytania" required>
                             <option value="1">@pytanie.Odp_1</option>
                             <option value="2">@pytanie.Odp_2</option>
-                            @if (@pytanie.Odp_3 != null)
-                            {
-                                <option value="3">@pytanie.Odp_3</option>
-                            }
-                            @if (@pytanie.Odp_4 != null)
-                            {
-                                <option value="4">@pytanie.Odp_4</option>
-                            }
-                            @if (@pytanie.Odp_5 != null)
-                            {
-                                <option value="5">@pytanie.Odp_5</option>
-                            }
-                            @if (@pytanie.Odp_6 != null)
-                            {
-                                <option value="6">@pytanie.Odp_6</option>
-                            }
-                            @if (@pytanie.Odp_7 != null)
-                            {
-                                <option value="7">@pytanie.Odp_7</option>
-                            }
-                            @if (@pytanie.Odp_8 != null)
-                            {
-                                <option value="8">@pytanie.Odp_8</option>
-                            }
-                            @if (@pytanie.Odp_9 != null)
-                            {
-                                <option value="9">@pytanie.Odp_9</option>
-                            }
-                            @if (@pytanie.Odp_10 != null)
-                            {
-                                <option value="10">@pytanie.Odp_10</option>
-                            }
+                            @if (@pytanie.Odp_3 != null){<option value="3">@pytanie.Odp_3</option>}
+                            @if (@pytanie.Odp_4 != null){<option value="4">@pytanie.Odp_4</option>}
+                            @if (@pytanie.Odp_5 != null){<option value="5">@pytanie.Odp_5</option>}
+                            @if (@pytanie.Odp_6 != null){<option value="6">@pytanie.Odp_6</option>}
+                            @if (@pytanie.Odp_7 != null){<option value="7">@pytanie.Odp_7</option>}
+                            @if (@pytanie.Odp_8 != null){<option value="8">@pytanie.Odp_8</option>}
+                            @if (@pytanie.Odp_9 != null){<option value="9">@pytanie.Odp_9</option>}
+                            @if (@pytanie.Odp_10 != null){<option value="10">@pytanie.Odp_10</option>}
                         </select>
                     </div>
                 }

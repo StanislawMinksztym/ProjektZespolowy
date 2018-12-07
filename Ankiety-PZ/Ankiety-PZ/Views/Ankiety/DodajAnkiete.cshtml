@@ -13,16 +13,14 @@
     <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
     <script>
         $(document).ready(function () {
-            var nr = ($('#pytanieFieldset').children('input').length) - 3;
+            var nr = ($('#pytanieFieldset').children('input').length) - 4;
             $('#dodajOdp').click(function () {
-
                 var elem = $('#odp_' + nr)[0];
                 var elname = elem.name;
-                var elnum = nr + 1;
+                var elnum = nr + 2;
                 if (elnum <= 10) {
-                    //var f = ;
                     var odpnum = 'odp_' + elnum;
-                    var inputstr = "<label>Odpowiedź " + elnum + ":</label><input type='text' id=" + odpnum + " name=" + odpnum + " /><br>";
+                    var inputstr = "<label>Odpowiedź " + elnum + ":</label><input type='text' id=" + odpnum + " name=" + odpnum + " required /><br>";
                     $("#pytanieFieldset").append(inputstr);
                     nr++;
                 }
@@ -30,20 +28,25 @@
                     alert('Nie można dodać wiecej niż 10 odpowiedzi!');
                 }
             });
+
             $('#dodajPyt').click(function (event) {
-                form = $(this).parent().parent();
-                $.ajax({
-                    type: "GET",
-                    url: '/Ankiety/ZapiszAnkiete',
-                    data: form.serialize(),
-                    success: function (response) {
-                        $('#dodajPyt').hide();
-                        $('#idNowej').val(response);
-                    }
-                });
-                $('#dod_pytanie').show();
+                if ($("#nazwaF")[0].checkValidity()) {
+                    form = $(this).parent().parent();
+                    $.ajax({
+                        type: "GET",
+                        url: '/Ankiety/ZapiszAnkiete',
+                        data: form.serialize(),
+                        success: function (response) {
+                            $('#dodajPyt').hide();
+                            $('#idNowej').val(response);
+                        }
+                    });
+                    $('#dod_pytanie').show();
+                } else alert("Podaj nazwę!");
             });
+
             $('#zapiszPyt').click(function (event) {
+                if ($("#pytanieF")[0].checkValidity()) {
                 form = $(this).parent();
                 $.ajax({
                     type: "POST",
@@ -55,8 +58,8 @@
                         alert('Pytanie dodane poprawnie');
                         
                     }
-                });
-                
+                    });
+                } else alert("Uzupełnij pola!");   
             });
             $('#usunOdp').click(function (event) {
                 $('#pytanieFieldset').children('input').last().remove();
@@ -77,11 +80,11 @@
             </a>
         </div>
     </header>
-    <form method="post" class="pytanie">
+    <form id="nazwaF" method="post" class="pytanie">
         <div>
             <fieldset>
                 <label>Nazwa ankiety: </label>
-                <input type="text" name="nazwaAnkiety" value="" />
+                <input type="text" name="nazwaAnkiety" value="" required />
                 <br />
             </fieldset>
             <input type="button" id="dodajPyt" value="Dodaj pytanie" />
@@ -89,17 +92,20 @@
      </form>
 
     <div id="dod_pytanie" style="display:none;">
-        <form method="post" class="pytanie">
+        <form id="pytanieF" method="post" class="pytanie">
             <div>
                 <fieldset id="pytanieFieldset">
                     <input id="idNowej" type=hidden value="ID_ANKIETY" name="id_ankiety" />
                     <label>Treść pytania: </label>
-                    <input type="text" name="pyt1" value="" />
+                    <input type="text" name="pyt1" value="" required />
                     <label>Wielokrotne? </label>
-                    <input type="checkbox" name="wielo"/>
+                    <input type="checkbox" name="wielo" />
                     <br />
                     <label>Odpowiedź 1: </label>
-                    <input type="text" id="odp_1" name="odp_1" />
+                    <input type="text" id="odp_1" name="odp_1" required />
+                    <br />
+                    <label>Odpowiedź 2: </label>
+                    <input type="text" id="odp_2" name="odp_2" required />
                     <br />
                 </fieldset>
                 <input type="button" id="dodajOdp" value="Dodaj odpowiedź" />

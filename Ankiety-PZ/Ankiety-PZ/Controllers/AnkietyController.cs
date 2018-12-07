@@ -48,6 +48,7 @@ namespace Ankiety_PZ.Controllers
             {
                 var pytania = ctx.WyswietlPytania(id).ToList();
                 ViewBag.Pytania = pytania;
+                ViewBag.idAnkiety = id;
             }
             return View();
         }
