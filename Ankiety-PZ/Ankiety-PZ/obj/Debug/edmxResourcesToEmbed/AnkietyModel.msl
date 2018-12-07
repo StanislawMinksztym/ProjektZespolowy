@@ -98,7 +98,6 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="AktualizujWynik" FunctionName="Model.Store.AktualizujWynik" />
-    <FunctionImportMapping FunctionImportName="DodajAnkiete" FunctionName="Model.Store.DodajAnkiete" />
     <FunctionImportMapping FunctionImportName="DodajPytanie" FunctionName="Model.Store.DodajPytanie" />
     <FunctionImportMapping FunctionImportName="WyswietlPytania" FunctionName="Model.Store.WyswietlPytania">
       <ResultMapping>
@@ -150,5 +149,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DodajAnkiete" FunctionName="Model.Store.DodajAnkiete" />
   </EntityContainerMapping>
 </Mapping>

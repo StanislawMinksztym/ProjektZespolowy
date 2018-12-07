@@ -424,10 +424,6 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
             <Parameter Name="idpytania" Mode="In" Type="Int32" />
             <Parameter Name="nrodpowiedzi" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="DodajAnkiete">
-            <Parameter Name="nazwa" Mode="In" Type="String" />
-            <Parameter Name="iduz" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="DodajPytanie">
             <Parameter Name="idankiety" Mode="In" Type="Int32" />
             <Parameter Name="kilka" Mode="In" Type="Boolean" />
@@ -448,6 +444,10 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
           </FunctionImport>
           <FunctionImport Name="WyswietlWynik" ReturnType="Collection(Model.WyswietlWynik_Result)">
           <Parameter Name="idankiety" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DodajAnkiete" ReturnType="Collection(Int32)">
+            <Parameter Name="nazwa" Mode="In" Type="String" />
+            <Parameter Name="iduz" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="WypelnijAnkiete_Result">
@@ -610,7 +610,6 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="AktualizujWynik" FunctionName="Model.Store.AktualizujWynik" />
-          <FunctionImportMapping FunctionImportName="DodajAnkiete" FunctionName="Model.Store.DodajAnkiete" />
           <FunctionImportMapping FunctionImportName="DodajPytanie" FunctionName="Model.Store.DodajPytanie" />
           <FunctionImportMapping FunctionImportName="WyswietlPytania" FunctionName="Model.Store.WyswietlPytania">
             <ResultMapping>
@@ -662,6 +661,7 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DodajAnkiete" FunctionName="Model.Store.DodajAnkiete" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

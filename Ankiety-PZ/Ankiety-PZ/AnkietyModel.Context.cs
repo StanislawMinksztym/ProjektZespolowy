@@ -60,19 +60,6 @@ namespace Ankiety_PZ
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AktualizujWynik", idankietyParameter, idpytaniaParameter, nrodpowiedziParameter);
         }
     
-        public virtual int DodajAnkiete(string nazwa, Nullable<int> iduz)
-        {
-            var nazwaParameter = nazwa != null ?
-                new ObjectParameter("nazwa", nazwa) :
-                new ObjectParameter("nazwa", typeof(string));
-    
-            var iduzParameter = iduz.HasValue ?
-                new ObjectParameter("iduz", iduz) :
-                new ObjectParameter("iduz", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DodajAnkiete", nazwaParameter, iduzParameter);
-        }
-    
         public virtual int DodajPytanie(Nullable<int> idankiety, Nullable<bool> kilka, string pytanie, string odp1, string odp2, string odp3, string odp4, string odp5, string odp6, string odp7, string odp8, string odp9, string odp10)
         {
             var idankietyParameter = idankiety.HasValue ?
@@ -146,6 +133,19 @@ namespace Ankiety_PZ
                 new ObjectParameter("idankiety", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WyswietlWynik_Result>("WyswietlWynik", idankietyParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> DodajAnkiete(string nazwa, Nullable<int> iduz)
+        {
+            var nazwaParameter = nazwa != null ?
+                new ObjectParameter("nazwa", nazwa) :
+                new ObjectParameter("nazwa", typeof(string));
+    
+            var iduzParameter = iduz.HasValue ?
+                new ObjectParameter("iduz", iduz) :
+                new ObjectParameter("iduz", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("DodajAnkiete", nazwaParameter, iduzParameter);
         }
     }
 }

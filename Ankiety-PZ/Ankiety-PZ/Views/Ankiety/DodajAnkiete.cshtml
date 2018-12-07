@@ -13,7 +13,7 @@
     <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
     <script>
         $(document).ready(function () {
-            var nr = ($('#pytanieFieldset').children('input').length) - 2;
+            var nr = ($('#pytanieFieldset').children('input').length) - 3;
             $('#dodajOdp').click(function () {
 
                 var elem = $('#odp_' + nr)[0];
@@ -33,11 +33,12 @@
             $('#dodajPyt').click(function (event) {
                 form = $(this).parent().parent();
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     url: '/Ankiety/ZapiszAnkiete',
                     data: form.serialize(),
                     success: function (response) {
                         $('#dodajPyt').hide();
+                        $('#idNowej').val(response);
                     }
                 });
                 $('#dod_pytanie').show();
@@ -48,8 +49,9 @@
                     type: "POST",
                     url: '/Ankiety/ZapiszPytanie',
                     data: form.serialize(),
-                    success: function () {
+                    success: function (response) {
                         $('#pytanieFieldset').children('input').each(function () { $(this).val("") });
+                        $('#idNowej').val(response);
                         alert('Pytanie dodane poprawnie');
                         
                     }
@@ -90,9 +92,11 @@
         <form method="post" class="pytanie">
             <div>
                 <fieldset id="pytanieFieldset">
-                    <input type=hidden value="ID_ANKIETY" name="id_ankiety" />
+                    <input id="idNowej" type=hidden value="ID_ANKIETY" name="id_ankiety" />
                     <label>Treść pytania: </label>
                     <input type="text" name="pyt1" value="" />
+                    <label>Wielokrotne? </label>
+                    <input type="checkbox" name="wielo"/>
                     <br />
                     <label>Odpowiedź 1: </label>
                     <input type="text" id="odp_1" name="odp_1" />

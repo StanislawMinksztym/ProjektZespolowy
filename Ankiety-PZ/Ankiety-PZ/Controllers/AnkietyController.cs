@@ -80,29 +80,47 @@ namespace Ankiety_PZ.Controllers
             return View();
         }
 
-        //        . DodajAnkiete(iduzytkownika, nazwaankiety(70)
-        //3. DodajPytanie(idankiety, kilka_odp, tresc pytania, tresc odp1, tresc odp2,..., tresc odp10)
 
-        [HttpPost]
-        public ActionResult ZapiszAnkiete()
+        [HttpGet]
+        public Int32 ZapiszAnkiete()
         {
             using (var ctx = new Entities())
             {
-                //  ctx.DodajAnkiete(Session["UserId"],Request["NazwaAnkiety"]);
+                var idAnkiety = Convert.ToInt32(ctx.DodajAnkiete(Request["NazwaAnkiety"], Convert.ToInt32(Session["UserId"])).ToList()[0]);
+
+                return idAnkiety;
             }
-            return View();
+
         }
 
         [HttpPost]
-        public ActionResult ZapiszPytanie()
+        public Int32 ZapiszPytanie()
         {
             var pytanie = new Dictionary<string, object>();
             Request.Form.CopyTo(pytanie);
 
+            String odp1, odp2, odp3, odp4, odp5, odp6, odp7, odp8, odp9, odp10;
+            bool wielo = false;
 
-            var a = 1;
+            if (pytanie.ContainsKey("wielo")) { wielo = true; };
 
-            return View();
+            if (pytanie.ContainsKey("odp_1")) { odp1 = pytanie["odp_1"].ToString(); } else { odp1 = null; };
+            if (pytanie.ContainsKey("odp_2")) { odp2 = pytanie["odp_2"].ToString(); } else { odp2 = null; };
+            if (pytanie.ContainsKey("odp_3")) { odp3 = pytanie["odp_3"].ToString(); } else { odp3 = null; };
+            if (pytanie.ContainsKey("odp_4")) { odp4 = pytanie["odp_4"].ToString(); } else { odp4 = null; };
+            if (pytanie.ContainsKey("odp_5")) { odp5 = pytanie["odp_5"].ToString(); } else { odp5 = null; };
+            if (pytanie.ContainsKey("odp_6")) { odp6 = pytanie["odp_6"].ToString(); } else { odp6 = null; };
+            if (pytanie.ContainsKey("odp_7")) { odp7 = pytanie["odp_7"].ToString(); } else { odp7 = null; };
+            if (pytanie.ContainsKey("odp_8")) { odp8 = pytanie["odp_8"].ToString(); } else { odp8 = null; };
+            if (pytanie.ContainsKey("odp_9")) { odp9 = pytanie["odp_9"].ToString(); } else { odp9 = null; };
+            if (pytanie.ContainsKey("odp_10")) { odp10 = pytanie["odp_10"].ToString(); } else { odp10 = null; };
+
+            using (var ctx = new Entities())
+            {
+                ctx.DodajPytanie(Convert.ToInt32(pytanie["id_ankiety"]), wielo, pytanie["pyt1"].ToString(), odp1, odp2, odp3, odp4, odp5, odp6, odp7, odp8, odp9, odp10);
+            }
+
+            return Convert.ToInt32(pytanie["id_ankiety"]);
         }
     }
 }
