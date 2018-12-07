@@ -27,6 +27,6 @@ namespace Ankiety_PZ
         public string Odp_8 { get; set; }
         public string Odp_9 { get; set; }
         public string Odp_10 { get; set; }
-        public int IdAnkiety { get; set; }
+        public Nullable<int> ilosc_odp { get; set; }
     }
 }

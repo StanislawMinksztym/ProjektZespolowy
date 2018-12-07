@@ -30,7 +30,7 @@
                 {
                     <h3>@pytanie.Pytanie</h3>
                     <div class="odpowiedzi">
-                        <select @if (@pytanie.Kilka_Odp) { <text> multiple</text> } name="@pytanie.IdPytania">
+                        <select @if (@pytanie.Kilka_Odp) { <text> multiple</text> } size="@pytanie.ilosc_odp" name="@pytanie.IdPytania">
                             <option value="1">@pytanie.Odp_1</option>
                             <option value="2">@pytanie.Odp_2</option>
                             @if (@pytanie.Odp_3 != null)

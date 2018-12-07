@@ -117,7 +117,7 @@
           <ScalarProperty Name="Odp_8" ColumnName="Odp_8" />
           <ScalarProperty Name="Odp_9" ColumnName="Odp_9" />
           <ScalarProperty Name="Odp_10" ColumnName="Odp_10" />
-          <ScalarProperty Name="IdAnkiety" ColumnName="IdAnkiety" />
+          <ScalarProperty Name="ilosc_odp" ColumnName="ilosc_odp" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

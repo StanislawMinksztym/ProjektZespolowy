@@ -239,7 +239,7 @@
     <Property Type="String" Name="Odp_8" Nullable="true" />
     <Property Type="String" Name="Odp_9" Nullable="true" />
     <Property Type="String" Name="Odp_10" Nullable="true" />
-    <Property Type="Int32" Name="IdAnkiety" Nullable="false" />
+    <Property Type="Int32" Name="ilosc_odp" Nullable="true" />
   </ComplexType>
   <ComplexType Name="WyswietlWynik_Result">
     <Property Type="String" Name="NazwaAnkiety" Nullable="false" MaxLength="70" />
