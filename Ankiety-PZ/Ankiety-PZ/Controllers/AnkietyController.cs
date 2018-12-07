@@ -77,7 +77,14 @@ namespace Ankiety_PZ.Controllers
 
         public ActionResult DodajAnkiete()
         {
-            return View();
+            if (Session.Keys.Count != 0)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("ListaAnkiet");
+            }
         }
 
 
@@ -87,10 +94,8 @@ namespace Ankiety_PZ.Controllers
             using (var ctx = new Entities())
             {
                 var idAnkiety = Convert.ToInt32(ctx.DodajAnkiete(Request["NazwaAnkiety"], Convert.ToInt32(Session["UserId"])).ToList()[0]);
-
                 return idAnkiety;
             }
-
         }
 
         [HttpPost]
@@ -98,12 +103,9 @@ namespace Ankiety_PZ.Controllers
         {
             var pytanie = new Dictionary<string, object>();
             Request.Form.CopyTo(pytanie);
-
             String odp1, odp2, odp3, odp4, odp5, odp6, odp7, odp8, odp9, odp10;
             bool wielo = false;
-
             if (pytanie.ContainsKey("wielo")) { wielo = true; };
-
             if (pytanie.ContainsKey("odp_1")) { odp1 = pytanie["odp_1"].ToString(); } else { odp1 = null; };
             if (pytanie.ContainsKey("odp_2")) { odp2 = pytanie["odp_2"].ToString(); } else { odp2 = null; };
             if (pytanie.ContainsKey("odp_3")) { odp3 = pytanie["odp_3"].ToString(); } else { odp3 = null; };
@@ -114,12 +116,10 @@ namespace Ankiety_PZ.Controllers
             if (pytanie.ContainsKey("odp_8")) { odp8 = pytanie["odp_8"].ToString(); } else { odp8 = null; };
             if (pytanie.ContainsKey("odp_9")) { odp9 = pytanie["odp_9"].ToString(); } else { odp9 = null; };
             if (pytanie.ContainsKey("odp_10")) { odp10 = pytanie["odp_10"].ToString(); } else { odp10 = null; };
-
             using (var ctx = new Entities())
             {
                 ctx.DodajPytanie(Convert.ToInt32(pytanie["id_ankiety"]), wielo, pytanie["pyt1"].ToString(), odp1, odp2, odp3, odp4, odp5, odp6, odp7, odp8, odp9, odp10);
             }
-
             return Convert.ToInt32(pytanie["id_ankiety"]);
         }
     }
