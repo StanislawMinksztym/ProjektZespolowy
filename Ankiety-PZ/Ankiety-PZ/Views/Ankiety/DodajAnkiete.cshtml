@@ -1,0 +1,110 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Ankiety | Dodaj ankietę</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            var nr = ($('#pytanieFieldset').children('input').length) - 2;
+            $('#dodajOdp').click(function () {
+
+                var elem = $('#odp_' + nr)[0];
+                var elname = elem.name;
+                var elnum = nr + 1;
+                if (elnum <= 10) {
+                    //var f = ;
+                    var odpnum = 'odp_' + elnum;
+                    var inputstr = "<label>Odpowiedź " + elnum + ":</label><input type='text' id=" + odpnum + " name=" + odpnum + " /><br>";
+                    $("#pytanieFieldset").append(inputstr);
+                    nr++;
+                }
+                else {
+                    alert('Nie można dodać wiecej niż 10 odpowiedzi!');
+                }
+            });
+            $('#dodajPyt').click(function (event) {
+                form = $(this).parent().parent();
+                $.ajax({
+                    type: "POST",
+                    url: '/Ankiety/ZapiszAnkiete',
+                    data: form.serialize(),
+                    success: function (response) {
+                        $('#dodajPyt').hide();
+                    }
+                });
+                $('#dod_pytanie').show();
+            });
+            $('#zapiszPyt').click(function (event) {
+                form = $(this).parent();
+                $.ajax({
+                    type: "POST",
+                    url: '/Ankiety/ZapiszPytanie',
+                    data: form.serialize(),
+                    success: function () {
+                        $('#pytanieFieldset').children('input').each(function () { $(this).val("") });
+                        alert('Pytanie dodane poprawnie');
+                        
+                    }
+                });
+                
+            });
+            $('#usunOdp').click(function (event) {
+                $('#pytanieFieldset').children('input').last().remove();
+                $('#pytanieFieldset').children('label').last().remove();
+                nr--;
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1> Dodaj ankietę</h1>
+        <div class="action_buttons">
+            <a href="/Account/LogOut">
+                <div class="button">
+                    Wyloguj
+                </div>
+            </a>
+        </div>
+    </header>
+    <form method="post" class="pytanie">
+        <div>
+            <fieldset>
+                <label>Nazwa ankiety: </label>
+                <input type="text" name="nazwaAnkiety" value="" />
+                <br />
+            </fieldset>
+            <input type="button" id="dodajPyt" value="Dodaj pytanie" />
+        </div> 
+     </form>
+
+    <div id="dod_pytanie" style="display:none;">
+        <form method="post" class="pytanie">
+            <div>
+                <fieldset id="pytanieFieldset">
+                    <input type=hidden value="ID_ANKIETY" name="id_ankiety" />
+                    <label>Treść pytania: </label>
+                    <input type="text" name="pyt1" value="" />
+                    <br />
+                    <label>Odpowiedź 1: </label>
+                    <input type="text" id="odp_1" name="odp_1" />
+                    <br />
+                </fieldset>
+                <input type="button" id="dodajOdp" value="Dodaj odpowiedź" />
+                <input type="button" id="usunOdp" value="Usun odpowiedź" />
+            </div>
+            <input type="button" id="zapiszPyt" value="Zapisz pytanie" />
+        </form>
+    </div>
+</body>
+</html>
+
+
