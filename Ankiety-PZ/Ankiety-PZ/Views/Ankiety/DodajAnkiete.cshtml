@@ -20,7 +20,7 @@
                 var elnum = nr + 2;
                 if (elnum <= 10) {
                     var odpnum = 'odp_' + elnum;
-                    var inputstr = "<label>Odpowiedź " + elnum + ":</label><input type='text' id=" + odpnum + " name=" + odpnum + " required /><br>";
+                    var inputstr = "<label>Odpowiedź " + elnum + ": </label><input type='text' id=" + odpnum + " name=" + odpnum + " required class='odpowiedz' /><br>";
                     $("#pytanieFieldset").append(inputstr);
                     nr++;
                 }
@@ -64,6 +64,7 @@
             $('#usunOdp').click(function (event) {
                 $('#pytanieFieldset').children('input').last().remove();
                 $('#pytanieFieldset').children('label').last().remove();
+                $('#pytanieFieldset').find('br').last().remove();
                 nr--;
             });
         });
@@ -80,39 +81,44 @@
             </a>
         </div>
     </header>
-    <form id="nazwaF" method="post" class="pytanie">
-        <div>
+    <div class="dod_ankiete_form">
+    <form id="nazwaF" method="post">
+        <div class="odpowiedzi-form">
             <fieldset>
                 <label>Nazwa ankiety: </label>
-                <input type="text" name="nazwaAnkiety" value="" required />
+                <input type="text" name="nazwaAnkiety" value="" required class="odpowiedz" />
                 <br />
             </fieldset>
-            <input type="button" id="dodajPyt" value="Dodaj pytanie" />
+            <input type="button" id="dodajPyt" value="Dodaj pytanie" class="wyslij_btn" />
         </div> 
      </form>
 
     <div id="dod_pytanie" style="display:none;">
-        <form id="pytanieF" method="post" class="pytanie">
-            <div>
+        <form id="pytanieF" method="post">
+            <div class="odpowiedzi-form">
                 <fieldset id="pytanieFieldset">
                     <input id="idNowej" type=hidden value="ID_ANKIETY" name="id_ankiety" />
                     <label>Treść pytania: </label>
-                    <input type="text" name="pyt1" value="" required />
-                    <label>Wielokrotne? </label>
-                    <input type="checkbox" name="wielo" />
+                    <input type="text" name="pyt1" value="" required class="odpowiedz" />
+                    <br />
+                    <label>Można zazanczyć wiecej niż jedną odpowiedź </label>
+                    <input type="checkbox" name="wielo" class="odpowiedz" />
                     <br />
                     <label>Odpowiedź 1: </label>
-                    <input type="text" id="odp_1" name="odp_1" required />
+                    <input type="text" id="odp_1" name="odp_1" required class="odpowiedz" />
                     <br />
                     <label>Odpowiedź 2: </label>
-                    <input type="text" id="odp_2" name="odp_2" required />
+                    <input type="text" id="odp_2" name="odp_2" required class="odpowiedz" />
                     <br />
                 </fieldset>
-                <input type="button" id="dodajOdp" value="Dodaj odpowiedź" />
-                <input type="button" id="usunOdp" value="Usun odpowiedź" />
+                <input type="button" id="dodajOdp" value="Dodaj odpowiedź" class="wyslij_btn" />
+                <input type="button" id="usunOdp" value="Usun odpowiedź" class="wyslij_btn" />
             </div>
-            <input type="button" id="zapiszPyt" value="Zapisz pytanie" />
+            <input type="button" id="zapiszPyt" value="Zapisz pytanie" class="save_button" />
+            <br />
+            <a href="/" />Zakończ dodawanie ankiety</a>
         </form>
+    </div>
     </div>
 </body>
 </html>
