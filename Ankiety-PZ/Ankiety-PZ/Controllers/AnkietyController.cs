@@ -22,6 +22,7 @@ namespace Ankiety_PZ.Controllers
                 }
             }
             ViewBag.ListaAnkiet = ankietyList;
+            
             return View();
         }
 
