@@ -1,0 +1,9 @@
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\bin\Debug\WebTest1.webtest
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\bin\Debug\Ankiety-PZ_LoadTest.dll
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\bin\Debug\Ankiety-PZ_LoadTest.pdb
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.dll
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\obj\Debug\Ankiety-PZ_LoadTest.csprojAssemblyReference.cache
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\obj\Debug\Ankiety-PZ_LoadTest.csproj.CoreCompileInputs.cache
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\obj\Debug\Ankiety-PZ_LoadTest.csproj.CopyComplete
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\obj\Debug\Ankiety-PZ_LoadTest.dll
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\obj\Debug\Ankiety-PZ_LoadTest.pdb

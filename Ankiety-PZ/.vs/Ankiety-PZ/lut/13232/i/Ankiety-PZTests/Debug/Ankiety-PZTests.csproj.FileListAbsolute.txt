@@ -1,0 +1,10 @@
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\13232\b\Ankiety-PZTests\bin\Debug\ApplicationInsights.config
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\13232\b\Ankiety-PZTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\13232\b\Ankiety-PZTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\13232\b\Ankiety-PZTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\13232\b\Ankiety-PZTests\bin\Debug\Ankiety-PZTests.dll.config
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\13232\b\Ankiety-PZTests\bin\Debug\Ankiety-PZTests.dll
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\13232\i\Ankiety-PZTests\Debug\Ankiety-PZTests.csprojAssemblyReference.cache
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\13232\i\Ankiety-PZTests\Debug\Ankiety-PZTests.csproj.CoreCompileInputs.cache
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\13232\i\Ankiety-PZTests\Debug\Ankiety-PZTests.csproj.CopyComplete
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\13232\i\Ankiety-PZTests\Debug\Ankiety-PZTests.dll
