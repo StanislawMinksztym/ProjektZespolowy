@@ -7,3 +7,4 @@ E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\obj\Debug\Ankiety-PZ_Lo
 E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\obj\Debug\Ankiety-PZ_LoadTest.csproj.CopyComplete
 E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\obj\Debug\Ankiety-PZ_LoadTest.dll
 E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\obj\Debug\Ankiety-PZ_LoadTest.pdb
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\Ankiety-PZ_LoadTest\bin\Debug\LoadTest1.loadtest
