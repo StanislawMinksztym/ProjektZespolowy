@@ -13,16 +13,38 @@ namespace Ankiety_PZ.Controllers
         public ActionResult ListaAnkiet()
         {
             var ankietyList = new List<WyswietlAnkiety>();
+            var doWywalenia = new List<Int32>();
             using (Entities ctx1 = new Entities())
             {
                 var result = from t in ctx1.WyswietlAnkiety select t;
+
+                ctx1.SaveChanges();
+
                 foreach (WyswietlAnkiety t in result)
                 {
-                    ankietyList.Add(t);
+                    var pytania = ctx1.WyswietlPytania(t.IdAnkiety).ToList().Count();
+
+                    if (pytania == 0)
+                    {
+                        doWywalenia.Add(t.IdAnkiety);
+                    }
+                    else
+                    {
+                        ankietyList.Add(t);
+                    }
                 }
             }
+
+            using (Entities ctx2 = new Entities())
+            {
+                foreach (int id in doWywalenia)
+                {
+                    ctx2.UsunAnkiete(id);
+                }
+            }
+
             ViewBag.ListaAnkiet = ankietyList;
-            
+
             return View();
         }
 

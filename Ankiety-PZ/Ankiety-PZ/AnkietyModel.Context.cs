@@ -147,5 +147,14 @@ namespace Ankiety_PZ
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("DodajAnkiete", nazwaParameter, iduzParameter);
         }
+    
+        public virtual int UsunAnkiete(Nullable<int> idankiety)
+        {
+            var idankietyParameter = idankiety.HasValue ?
+                new ObjectParameter("idankiety", idankiety) :
+                new ObjectParameter("idankiety", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UsunAnkiete", idankietyParameter);
+        }
     }
 }

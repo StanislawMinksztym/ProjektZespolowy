@@ -177,6 +177,9 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
           <Parameter Name="odp9" Type="varchar(max)" Mode="In" />
           <Parameter Name="odp10" Type="varchar(max)" Mode="In" />
         </Function>
+        <Function Name="UsunAnkiete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idankiety" Type="int" Mode="In" />
+        </Function>
         <Function Name="WyswietlPytania" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idankiety" Type="int" Mode="In" />
         </Function>
@@ -449,6 +452,9 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
             <Parameter Name="nazwa" Mode="In" Type="String" />
             <Parameter Name="iduz" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="UsunAnkiete">
+            <Parameter Name="idankiety" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="WypelnijAnkiete_Result">
           <Property Type="String" Name="NazwaAnkiety" Nullable="false" MaxLength="70" />
@@ -662,6 +668,7 @@ warning 6002: The table/view 'aspnet-Ankiety-PZ-20181127072910.dbo.WyswietlAnkie
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="DodajAnkiete" FunctionName="Model.Store.DodajAnkiete" />
+          <FunctionImportMapping FunctionImportName="UsunAnkiete" FunctionName="Model.Store.UsunAnkiete" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

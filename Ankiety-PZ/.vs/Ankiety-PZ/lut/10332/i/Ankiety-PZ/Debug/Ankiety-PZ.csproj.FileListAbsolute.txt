@@ -1,0 +1,6 @@
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\10332\b\Ankiety-PZ\bin\ApplicationInsights.config
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\10332\b\Ankiety-PZ\bin\Ankiety-PZ.dll.config
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\10332\b\Ankiety-PZ\bin\Ankiety-PZ.dll
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\10332\i\Ankiety-PZ\Debug\Ankiety-PZ.csproj.CoreCompileInputs.cache
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\10332\i\Ankiety-PZ\Debug\Ankiety-PZ.csproj.CopyComplete
+E:\_SMGH\ProjektZespolowy\Ankiety-PZ\.vs\Ankiety-PZ\lut\10332\i\Ankiety-PZ\Debug\Ankiety-PZ.dll
