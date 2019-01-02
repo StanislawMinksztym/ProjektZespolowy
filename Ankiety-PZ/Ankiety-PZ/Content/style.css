@@ -130,3 +130,16 @@ fieldset {
     color:azure;
     padding: 20px 10px 20px 10px;
 }
+
+.ty_message {
+    font-family: Arial;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.lista_link {
+    font-size: 12px;
+    padding-top: 30px;
+    text-align: right;
+}

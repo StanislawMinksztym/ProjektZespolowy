@@ -96,7 +96,11 @@ namespace Ankiety_PZ.Controllers
                     }
                 }
             }
-            return RedirectToAction("ListaAnkiet");
+            return RedirectToAction("ThankYouPage");
+        }
+        public ActionResult ThankYouPage()
+        {
+            return View();
         }
 
         public ActionResult DodajAnkiete()
